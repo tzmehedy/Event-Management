@@ -8,7 +8,7 @@ export default function FeatureEvents() {
       <div className='flex flex-col md:flex-row justify-between items-center p-2 lg:p-0'>
         <div>
             <h1 className='text-3xl font-bold'>Featured Events</h1>
-            <p>Don't miss out on these trending experiences.</p>
+            <p>Don&apos;t miss out on these trending experiences.</p>
 
         </div>
         <div>

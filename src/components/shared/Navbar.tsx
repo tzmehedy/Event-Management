@@ -123,10 +123,10 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <Button asChild className="text-sm" size="lg" variant="outline">
+          <Button asChild className="text-sm" variant="outline">
             <Link href="/login">Login</Link>
           </Button>
-          <Button  className="text-sm" size="lg">
+          <Button  className="text-sm" >
             Become a host
           </Button>
         </div>

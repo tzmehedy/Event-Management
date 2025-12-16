@@ -36,10 +36,7 @@ export function HeroSection() {
             <Card
               className="h-172 max-w-dvw bg-cover"
               style={{
-                backgroundImage: `linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
-      ),url('/assets/images/HeroImage_1.jpg')`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/assets/images/HeroImage_1.jpg')`,
               }}
             >
               <CardContent className="h-full flex items-center justify-center p-6">
@@ -75,10 +72,7 @@ export function HeroSection() {
             <Card
               className="h-172 bg-cover "
               style={{
-                backgroundImage: `linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
-      ),url('/assets/images/HeroImage_2.jpg')`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/assets/images/HeroImage_2.jpg')`,
               }}
             >
               <CardContent className="h-full flex  items-center justify-center p-6">
