@@ -15,7 +15,7 @@ import Logo from "../../../public/assets/logo/Logo";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { active: true, href: "#", label: "Home" },
+  { active: true, href: "/", label: "Home" },
   { href: "/explore-events", label: "Explore Events" },
 ];
 

@@ -12,15 +12,15 @@ export default function Counter() {
     useEffect(()=>{
         const numberOfCreatedEvent = setInterval(()=>{
             setCreatedEvent((prev)=> (prev<150? prev+1 : 150))
-        }, 10)
+        }, 20)
 
         const numberOfHappyAttendees = setInterval(()=>{
             setHappyAttendees((prev)=> (prev<140? prev+1 : 140))
-        }, 10)
+        }, 20)
 
         const numberOfCities = setInterval(()=>{
             setCities((prev)=> (prev<80? prev+1 : 80))
-        }, 10)
+        }, 20)
         const numberOfRating = setInterval(()=>{
             setRating((prev)=> (prev < 4.9 ? parseFloat((prev+ 0.1).toFixed(2)) : 4.9))
         }, 30)
