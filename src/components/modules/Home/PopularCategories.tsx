@@ -3,7 +3,7 @@ import { Activity, Music, Paintbrush, Trophy, Users, Utensils } from "lucide-rea
 
 export default function PopularCategories() {
   return (
-    <div className="bg-[#111827] py-20 rounded-sm">
+    <div className="bg-[#111827] py-20 rounded-sm min-h-dvh">
       <div className="container mx-auto space-y-10 p-4 lg:p-0">
         <div className="text-white space-y-3">
           <h1 className="text-3xl font-bold">Popular Categories</h1>
