@@ -9,7 +9,7 @@ export default function LoginPage() {
         <div className="flex flex-col items-center space-y-3">
           <Link href="/"><Logo /></Link>
           <h3 className="text-2xl font-bold">Welcome Back</h3>
-          <p>Enter your credentials to access your account</p>
+          <p className="text-muted-foreground">Enter your credentials to access your account</p>
         </div>
 
         <div>
@@ -17,7 +17,7 @@ export default function LoginPage() {
         </div>
 
         <div className="text-center">
-          <small>Don&apos;t have an account, Please <Link href="/register" className="text-[#DC143C] underline">Register</Link></small>
+          <small className="text-muted-foreground">Don&apos;t have an account, Please <Link href="/register" className="text-[#DC143C] underline">Register</Link></small>
         </div>
       </div>
     </div>

@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { Plus, Search } from "lucide-react";
+import Image from "next/image";
+import heroImg1 from "../../../../public/assets/images/HeroImage_1.jpg";
+import heroImg2 from "../../../../public/assets/images/HeroImage_2.jpg";
 
 export function HeroSection() {
   const plugin = React.useRef(
@@ -30,17 +33,25 @@ export function HeroSection() {
         <CarouselPrevious />
       </div>
 
-      <CarouselContent>
+      <CarouselContent className="">
         <CarouselItem className="">
           <div className="">
-            <Card
-              className="h-172 max-w-dvw bg-cover"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/assets/images/HeroImage_1.jpg')`,
-              }}
-            >
-              <CardContent className="h-full flex items-center justify-center p-6">
-                <div className="text-center p-5 space-y-5">
+            <Card className="h-184 max-w-dvw relative">
+              <div className=" opacity-80 p-0 m-0">
+                <Image
+                  alt="HeroImage1"
+                  src={heroImg1}
+                  quality={100}
+                  fill
+                  sizes="100vh"
+                  style={{
+                    objectFit: "fill",
+                  }}
+                  className="rounded-lg"
+                />
+              </div>
+              <CardContent className="h-full flex items-center justify-center p-6 z-10">
+                <div className="text-center p-5 space-y-5 ">
                   <h1 className="text-5xl font-bold text-[#111827]">
                     Discover Amazing
                   </h1>
@@ -57,7 +68,10 @@ export function HeroSection() {
                     <Button className="bg-[#DC143C] text-white font-bold">
                       <Search /> Find Activities
                     </Button>
-                    <Button variant="ghost" className="border border-[#DC143C] text-white font-bold">
+                    <Button
+                      variant="ghost"
+                      className="border border-[#DC143C] text-white font-bold"
+                    >
                       <Plus /> Create Event
                     </Button>
                   </div>
@@ -67,15 +81,24 @@ export function HeroSection() {
           </div>
         </CarouselItem>
 
-        <CarouselItem>
+        <CarouselItem className="">
           <div className="">
-            <Card
-              className="h-172 bg-cover "
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/assets/images/HeroImage_2.jpg')`,
-              }}
-            >
-              <CardContent className="h-full flex  items-center justify-center p-6">
+            <Card className="h-184 max-w-dvw  relative">
+              <div className="p-0 m-0 opacity-80">
+                <Image
+                  alt="HeroImage2"
+                  src={heroImg2}
+                  quality={100}
+                  placeholder="blur"
+                  fill
+                  sizes="100vh"
+                  style={{
+                    objectFit: "fill",
+                  }}
+                  className="rounded-lg"
+                />
+              </div>
+              <CardContent className="h-full flex items-center justify-center p-6 z-10 ">
                 <div className="text-center p-5 space-y-5">
                   <h1 className="text-5xl font-bold text-[#111827]">
                     Discover Amazing
@@ -93,7 +116,10 @@ export function HeroSection() {
                     <Button className="bg-[#DC143C] text-white font-bold">
                       <Search /> Find Activities
                     </Button>
-                    <Button variant="ghost" className="border border-[#DC143C] text-white font-bold">
+                    <Button
+                      variant="ghost"
+                      className="border border-[#DC143C] text-white font-bold"
+                    >
                       <Plus /> Create Event
                     </Button>
                   </div>
