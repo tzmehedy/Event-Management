@@ -36,8 +36,8 @@ export function HeroSection() {
       <CarouselContent className="">
         <CarouselItem className="">
           <div className="">
-            <Card className="h-184 max-w-dvw relative">
-              <div className=" opacity-80 p-0 m-0">
+            <Card className="h-172 max-w-dvw relative">
+              <div className=" opacity-90 p-0 m-0">
                 <Image
                   alt="HeroImage1"
                   src={heroImg1}
@@ -45,10 +45,13 @@ export function HeroSection() {
                   fill
                   sizes="100vh"
                   style={{
-                    objectFit: "fill",
+                    objectFit: "cover",
                   }}
                   className="rounded-lg"
                 />
+              </div>
+              <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
               </div>
               <CardContent className="h-full flex items-center justify-center p-6 z-10">
                 <div className="text-center p-5 space-y-5 ">
@@ -58,7 +61,7 @@ export function HeroSection() {
                   <h1 className="text-5xl font-bold text-[#DC143C]">
                     Events Near You
                   </h1>
-                  <p className="text-muted/90">
+                  <p className="text-muted/80 font-bold">
                     Join thousands of people finding and creating unforgettable{" "}
                     <br />
                     experiences every single day.
@@ -83,7 +86,7 @@ export function HeroSection() {
 
         <CarouselItem className="">
           <div className="">
-            <Card className="h-184 max-w-dvw  relative">
+            <Card className="h-172 max-w-dvw  relative">
               <div className="p-0 m-0 opacity-80">
                 <Image
                   alt="HeroImage2"
@@ -93,10 +96,13 @@ export function HeroSection() {
                   fill
                   sizes="100vh"
                   style={{
-                    objectFit: "fill",
+                    objectFit: "cover",
                   }}
                   className="rounded-lg"
                 />
+              </div>
+              <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
               </div>
               <CardContent className="h-full flex items-center justify-center p-6 z-10 ">
                 <div className="text-center p-5 space-y-5">

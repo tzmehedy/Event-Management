@@ -15,12 +15,10 @@ import { loginUser } from "@/services/auth/login";
 
 export default function LoginForm() {
   const [state, formAction, isPending] = useActionState(loginUser, null);
-
   const getErrorFieldMessage = (fieldName: string) => {
     if (state && state?.errors) {
       const error = state.errors.find((err: any) => err.field === fieldName);
 
-      console.log(error)
       return error?.message;
     }
   };

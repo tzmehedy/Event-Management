@@ -38,6 +38,7 @@ export const loginUser = async(_currentState: any, formData: any) =>{
             body: JSON.stringify(loginPayload)
         }).then((res)=>res.json())
 
+
         const cookiesStore = await cookies()
 
         cookiesStore.set("accessToken", res.data?.userTokens?.accessToken, {
@@ -54,6 +55,7 @@ export const loginUser = async(_currentState: any, formData: any) =>{
         return res
         
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error)
         return {error: "Login Failed"}
         

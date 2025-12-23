@@ -1,5 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Activity, Music, Paintbrush, Trophy, Users, Utensils } from "lucide-react";
+import {
+  Activity,
+  Music,
+  Paintbrush,
+  Trophy,
+  Users,
+  Utensils,
+} from "lucide-react";
+import Image from "next/image";
+import sportsBG from "../../../../public/assets/images/sports.jpg"
+import musicBG from "../../../../public/assets/images/music.jpg"
+import foodBG from "../../../../public/assets/images/food.jpg"
+import artBG from "../../../../public/assets/images/art.jpg"
+import networkingBG from "../../../../public/assets/images/networking.jpg"
+import wellnessBG from "../../../../public/assets/images/wellness.jpg"
 
 export default function PopularCategories() {
   return (
@@ -15,12 +29,27 @@ export default function PopularCategories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* sports */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/sports.jpg")`,
-            }}
+            className="max-w-dvw h-72  border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative "
+           
           >
-            <CardContent className="">
+            <div className="">
+              <Image
+                alt="sportsBG"
+                src={sportsBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl bg-blend-darken "
+              />
+            </div>
+
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Trophy />
@@ -32,12 +61,26 @@ export default function PopularCategories() {
 
           {/* music */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/music.jpg")`,
-            }}
+            className="max-w-dvw h-72  border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative"
           >
-            <CardContent className="">
+
+            <div className=" ">
+              <Image
+                alt="musicBG"
+                src={musicBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Music />
@@ -49,12 +92,25 @@ export default function PopularCategories() {
 
           {/* Food */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/food.jpg")`,
-            }}
+            className="max-w-dvw h-72  border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative"
           >
-            <CardContent className="">
+            <div className="">
+              <Image
+                alt="foodBG"
+                src={foodBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Utensils />
@@ -66,12 +122,26 @@ export default function PopularCategories() {
 
           {/* art */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/art.jpg")`,
-            }}
+            className="max-w-dvw h-72 border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative"
+            
           >
-            <CardContent className="">
+            <div className="">
+              <Image
+                alt="artBG"
+                src={artBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Paintbrush />
@@ -83,12 +153,26 @@ export default function PopularCategories() {
 
           {/* networking */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/networking.jpg")`,
-            }}
+            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative"
+           
           >
-            <CardContent className="">
+            <div className="">
+              <Image
+                alt="networkingBG"
+                src={networkingBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Users />
@@ -98,15 +182,27 @@ export default function PopularCategories() {
             </CardContent>
           </Card>
 
-
           {/* wellness */}
           <Card
-            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("/assets/images/wellness.jpg")`,
-            }}
+            className="max-w-dvw h-72 bg-cover border border-[#DC143C] flex justify-center items-center hover:opacity-80 transition-all duration-300 relative"
           >
-            <CardContent className="">
+            <div className="">
+              <Image
+                alt="wellnessBG"
+                src={wellnessBG}
+                quality={100}
+                fill
+                sizes="100vh"
+                style={{
+                  objectFit: "fill",
+                }}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="h-full w-full bg-black absolute opacity-20 top-0 rounded-xl">
+
+              </div>
+            <CardContent className="z-10">
               <div className="text-white flex flex-col items-center">
                 <div className="bg-background/30 h-12 w-12 flex justify-center items-center rounded-full">
                   <Activity />
