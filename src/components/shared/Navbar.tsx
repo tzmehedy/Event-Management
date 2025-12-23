@@ -23,12 +23,8 @@ export default function Navbar() {
   return (
     <header className="border-b px-4 md:px-6">
       <div className="flex h-16 items-center justify-between gap-4">
-
-
         {/* Left side */}
         <div className="flex items-center gap-2">
-
-
           {/* Mobile menu trigger */}
           <Popover>
             <PopoverTrigger asChild>
@@ -65,7 +61,6 @@ export default function Navbar() {
               </Button>
             </PopoverTrigger>
 
-
             <PopoverContent align="start" className="w-36 p-1 md:hidden">
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
@@ -85,12 +80,16 @@ export default function Navbar() {
             </PopoverContent>
           </Popover>
 
-
           {/* Main nav */}
           <div className="flex justify-between items-center gap-6">
-            <Link className="text-primary hover:text-primary/90 flex items-center space-x-2" href="/">
-              <Logo/>
-              <h1 className="text-3xl font-bold text-[#DC143C] hidden lg:inline-block"><span className="text-[#111827]">Event</span> Management</h1>
+            <Link
+              className="text-primary hover:text-primary/90 flex items-center space-x-2"
+              href="/"
+            >
+              <Logo />
+              <h1 className="text-3xl font-bold text-[#DC143C] hidden lg:inline-block">
+                <span className="text-[#111827]">Event</span> Management
+              </h1>
             </Link>
           </div>
         </div>
@@ -98,36 +97,26 @@ export default function Navbar() {
         {/* middle side */}
 
         <div>
-
           {/* Navigation menu */}
-            <NavigationMenu className="max-md:hidden">
-              <NavigationMenuList className="gap-2">
-                {navigationLinks.map((link) => (
-                  <NavigationMenuItem key={link.label}>
-                    <NavigationMenuLink
-                      active={link.active}
-                      className="py-1.5 font-medium text-muted-foreground hover:text-primary"
-                      href={link.href}
-                    >
-                      {link.label}
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-
+          <NavigationMenu className="max-md:hidden">
+            <NavigationMenuList className="gap-5">
+              {navigationLinks.map((link) => (
+                <NavigationMenuItem key={link.label}>
+                  {/* <NavigationMenuLink className=" font-medium text-muted-foreground hover:text-primary"> */}
+                    <Link href={link.href} className="font-medium text-muted-foreground hover:text-primary"> {link.label}</Link>
+                  {/* </NavigationMenuLink> */}
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
-
-
 
         {/* Right side */}
         <div className="flex items-center gap-2">
           <Button asChild className="text-sm" variant="outline">
             <Link href="/login">Login</Link>
           </Button>
-          <Button  className="text-sm" >
-            Become a host
-          </Button>
+          <Button className="text-sm">Become a host</Button>
         </div>
       </div>
     </header>

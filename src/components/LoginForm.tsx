@@ -13,7 +13,7 @@ import {
 import { Input } from "./ui/input";
 import { loginUser } from "@/services/auth/login";
 
-export default function LoginForm() {
+export default function LoginForm({ redirect }: { redirect?: string }) {
   const [state, formAction, isPending] = useActionState(loginUser, null);
   const getErrorFieldMessage = (fieldName: string) => {
     if (state && state?.errors) {
@@ -26,6 +26,9 @@ export default function LoginForm() {
   return (
     <form action={formAction} className="space-y-5">
       <FieldSet>
+        {redirect && (
+          <input type="hidden" name="redirect" value={redirect} />
+        )}
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="email">Email</FieldLabel>

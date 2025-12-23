@@ -2,6 +2,9 @@
 
 import { cookies } from "next/headers"
 import z from "zod"
+import jwt, { JwtPayload } from "jsonwebtoken"
+import { getDefaultDashboardRoutes, isValidRedirectForRole, UserRole } from "@/lib/auth-utils"
+import { redirect } from "next/navigation"
 
 const loginFormZodSchema = z.object({
     email: z.email({error: "Invalid Email Address"}),
@@ -11,6 +14,7 @@ const loginFormZodSchema = z.object({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loginUser = async(_currentState: any, formData: any) =>{
     try {
+        const redirectTo = formData.get("redirect")
         const loginPayload = {
             email: formData.get("email"),
             password: formData.get("password")
@@ -52,10 +56,38 @@ export const loginUser = async(_currentState: any, formData: any) =>{
             sameSite: "none"
         })
 
+        const verifiedToken: JwtPayload | string = jwt.verify(res.data?.userTokens?.accessToken, process.env.JWT_ACCESS_SECRET_KEY as string)
+
+        if(typeof verifiedToken === "string"){
+            throw new Error("Invalid Token")
+        }
+
+        const role: UserRole = verifiedToken.role
+
+        if(redirectTo){
+            const requestPath = redirectTo.toString()
+
+            if (isValidRedirectForRole(requestPath, role)) {
+                redirect(requestPath);
+            } else {
+                redirect(getDefaultDashboardRoutes(role));
+            }
+        }
+        else{
+            redirect("/")
+        }
+        
+        
+
+ 
+
         return res
         
-    } catch (error) {
-        // eslint-disable-next-line no-console
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        if (error?.digest?.startsWith('NEXT_REDIRECT')) {
+            throw error;
+        }
         console.log(error)
         return {error: "Login Failed"}
         
