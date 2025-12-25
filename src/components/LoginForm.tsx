@@ -18,7 +18,6 @@ export default function LoginForm({ redirect }: { redirect?: string }) {
   const getErrorFieldMessage = (fieldName: string) => {
     if (state && state?.errors) {
       const error = state.errors.find((err: any) => err.field === fieldName);
-
       return error?.message;
     }
   };

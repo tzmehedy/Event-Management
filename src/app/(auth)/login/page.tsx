@@ -7,7 +7,8 @@ export default async function LoginPage({
 }: {
   searchParams?: Promise<{ redirect?: string }>;
 }) {
-  const params = (await searchParams) || {}  
+  const params = (await searchParams) || {};
+
   return (
     <div className="flex justify-center items-center  min-h-dvh p-2 md:p-0 ">
       <div className="border-2 border-[#DC143C] p-10 shadow-2xl rounded-lg bg-white space-y-3">

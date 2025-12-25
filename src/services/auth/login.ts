@@ -65,7 +65,7 @@ export const loginUser = async(_currentState: any, formData: any) =>{
             const requestPath = redirectTo.toString()
 
             if (isValidRedirectForRole(requestPath, role)) {
-                redirect(requestPath);
+                redirect(requestPath)
             } else {
                 redirect(getDefaultDashboardRoutes(role));
             }
@@ -73,7 +73,6 @@ export const loginUser = async(_currentState: any, formData: any) =>{
         else{
             redirect("/")
         }
-        
         
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

@@ -13,7 +13,9 @@ import {
 import Link from "next/link";
 import Logo from "../../../public/assets/logo/Logo";
 import { getCookie } from "@/lib/tokenHandler";
-import LogoutButton from "../LogoutButton";
+import { getUserInfo } from "@/services/auth/getUserInfo";
+import ProfileButton from "../ProfileButton";
+import { getDefaultDashboardRoutes } from "@/lib/auth-utils";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -22,7 +24,10 @@ const navigationLinks = [
 ];
 
 export default async function Navbar() {
-  const accessToken = await getCookie("accessToken");
+  const accessToken = await getCookie("accessToken")
+  const userInfo = await getUserInfo()
+  const dashboardHome =await getDefaultDashboardRoutes(userInfo?.role)
+
   return (
     <header className="border-b px-4 md:px-6 container mx-auto">
       <div className="flex h-16 items-center justify-between gap-4">
@@ -124,13 +129,14 @@ export default async function Navbar() {
         <div >
           {accessToken ? (
             <div className="flex items-center gap-2">
-              <LogoutButton/>
+            
               <Button
                 className="text-sm cursor-pointer"
                 disabled={!accessToken}
               >
                 Become a host
               </Button>
+              <ProfileButton name={userInfo?.name ? userInfo?.name : "Unknown User"} dashboardHome={dashboardHome}/>
             </div>
           ) : (
             <Button
