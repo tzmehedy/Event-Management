@@ -1,68 +1,43 @@
 "use client";
 import {
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { GetIconComponents } from "@/lib/icon-mapper";
+import { NavSection } from "@/types/dashboard.interface";
+import Link from "next/link";
 
-export default function DashboardSideBarContent() {
-    
-  const data = {
-    navMain: [
-      {
-        title: "Getting Started",
-        items: [
-          {
-            title: "Installation",
-            url: "#",
-          },
-          {
-            title: "Project Structure",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Building Your Application",
-        items: [
-          {
-            title: "Routing",
-            url: "#",
-          },
-          {
-            title: "Data Fetching",
-            url: "#",
-            isActive: true,
-          },
-          {
-            title: "Rendering",
-            url: "#",
-          },
-        ],
-      },
-    ],
+interface NavItemsProps {
+  data: {
+    navMain: NavSection[];
   };
+}
+
+export default function DashboardSideBarContent({ data }: NavItemsProps) {
   return (
     <SidebarMenu>
       {data.navMain.map((item) => (
         <SidebarMenuItem key={item.title}>
-          <SidebarMenuButton asChild>
-            <a href="#" className="font-medium">
-              {item.title}
-            </a>
-          </SidebarMenuButton>
+          <h1 className="text-[#DC143C] font-bold">{item.title}</h1>
+
           {item.items?.length ? (
             <SidebarMenuSub>
-              {item.items.map((item) => (
-                <SidebarMenuSubItem key={item.title}>
-                  <SidebarMenuSubButton asChild isActive={item.isActive}>
-                    <a href={item.url}>{item.title}</a>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              ))}
+              {item.items.map((item) => {
+                const Icon = GetIconComponents(item.icon);
+                return (
+                  <SidebarMenuSubItem key={item.title}>
+                    <SidebarMenuSubButton asChild>
+                      <div>
+                        <Icon />
+                        <Link  href={item.url}>{item.title}</Link>
+                      </div>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                );
+              })}
             </SidebarMenuSub>
           ) : null}
         </SidebarMenuItem>

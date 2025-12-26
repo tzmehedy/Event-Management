@@ -1,6 +1,7 @@
 export interface NavItems{
     title: string,
-    url: string
+    url: string,
+    icon: string
 }
 
 export interface NavSection{

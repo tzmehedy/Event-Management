@@ -9,11 +9,13 @@ const getCommonSideBarItems = (role:UserRole): NavSection[] =>{
             items: [
                 {
                     title: "Dashboard Home",
-                    url: defaultDashboard
+                    url: defaultDashboard,
+                    icon: "House"
                 },
                 {
-                    title: "",
-                    url: "/my-profile"
+                    title: "Profile",
+                    url: "/my-profile",
+                    icon: "User"
                 }
             ]
         
@@ -28,7 +30,8 @@ const getUserSideBarItems: NavSection[] = [
         items: [
             {
                 title: "My-Events",
-                url: "/My-Events/:id"
+                url: "/My-Events/:id",
+                icon: "CalendarDays"
             }
         ]
     }
@@ -39,11 +42,13 @@ const getAdminSideBarItems: NavSection[] = [
         items: [
             {
                 title: "All Users",
-                url: "/admin/dashboard/all-users"
+                url: "/admin/dashboard/all-users",
+                icon: "Users"
             },
             {
                 title: "All Events",
-                url: "/admin/dashboard/all-events"
+                url: "/admin/dashboard/all-events",
+                icon: "CalendarDays"
             },
         ]
     }
@@ -54,11 +59,13 @@ const getHostSideBarItems: NavSection[] = [
         items: [
             {
                 title: "Create Event",
-                url: "/host/dashboard/create-event"
+                url: "/host/dashboard/create-event",
+                icon: "CirclePlus"
             },
             {
                 title: "All Events",
-                url: "/host/dashboard/all-events"
+                url: "/host/dashboard/all-events",
+                icon: "CalendarDays"
             },
         ]
     }
@@ -67,7 +74,7 @@ const getHostSideBarItems: NavSection[] = [
 
 export const getSidebarItemsByRole = (role: UserRole): NavSection[] =>{
     const commonSidebarItems = getCommonSideBarItems(role)
-    
+
     switch(role){
         case "USER":
             return [...commonSidebarItems,...getUserSideBarItems]
