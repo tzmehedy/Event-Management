@@ -4,8 +4,8 @@ import RegisterForm from "@/components/RegisterForm";
 
 export default function RegisterPage() {
   return (
-    <div className="flex justify-center items-center  min-h-dvh p-2 md:p-0 my-10">
-      <div className="border-2 border-[#DC143C] p-10 shadow-2xl rounded-lg bg-white space-y-5">
+    <div className="flex justify-center items-center   p-2 md:p-0 my-10">
+      <div className="border-2 border-[#DC143C] p-10 shadow-2xl rounded-lg bg-white space-y-5 min-w-[90%] md:min-w-[30%] ">
         <div className="flex flex-col items-center space-y-3">
           <Link href="/">
             <Logo />

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
+import { serverFetch } from "@/lib/server-fetch";
 import z from "zod";
 
 const registerFormZodSchema = z.object({
@@ -57,8 +58,7 @@ export const registerUser = async (_currentState: any, formData: any) => {
       password: formData.get("password"),
     };
 
-    const res = await fetch("http://localhost:5000/api/v1/user/create-user", {
-      method: "POST",
+    const res = await serverFetch.post("/user/create-user", {
       headers: {
         "Content-type": "application/json"
       },
@@ -67,6 +67,7 @@ export const registerUser = async (_currentState: any, formData: any) => {
 
     return res;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
     return {error: "Registration Failed"}
   }

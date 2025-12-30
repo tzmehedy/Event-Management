@@ -12,6 +12,7 @@ import {
 } from "./ui/field";
 import { Input } from "./ui/input";
 import { loginUser } from "@/services/auth/login";
+import { Loader } from "lucide-react";
 
 export default function LoginForm({ redirect }: { redirect?: string }) {
   const [state, formAction, isPending] = useActionState(loginUser, null);
@@ -36,6 +37,7 @@ export default function LoginForm({ redirect }: { redirect?: string }) {
               name="email"
               type="email"
               placeholder="example@gmail.com"
+              className="border-2 focus-visible:border-[#DC143C]"
             />
             {getErrorFieldMessage("email") && (
               <FieldError>{getErrorFieldMessage("email")}</FieldError>
@@ -48,6 +50,7 @@ export default function LoginForm({ redirect }: { redirect?: string }) {
               name="password"
               type="password"
               placeholder="********"
+              className=" border-2 focus-visible:border-[#DC143C]"
             />
 
             {getErrorFieldMessage("password") && (
@@ -61,7 +64,9 @@ export default function LoginForm({ redirect }: { redirect?: string }) {
             className="w-full bg-[#DC143C] text-white font-bold cursor-pointer outline-2"
             variant="outline"
           >
-            Login
+            {
+                isPending? <Loader className="animate-spin"/>: "Login"
+              }
           </Button>
         </FieldGroup>
       </FieldSet>
