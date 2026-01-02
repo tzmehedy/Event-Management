@@ -63,8 +63,8 @@ const getHostSideBarItems: NavSection[] = [
                 icon: "CirclePlus"
             },
             {
-                title: "All Events",
-                url: "/host/dashboard/all-events",
+                title: "Published Events",
+                url: "/host/dashboard/published-events",
                 icon: "CalendarDays"
             },
         ]

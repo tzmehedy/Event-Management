@@ -11,13 +11,14 @@ const serverFetchHelper = async(endpoint: string, options: RequestInit): Promise
             ...headers,
             Cookie: accessToken? `accessToken=${accessToken}` : ""
         },
-        ...restOptions
+        ...restOptions,
+        credentials: "include"
     })
     return res
 }
 
 export const serverFetch = {
-    get: async(endpoint: string, options:RequestInit): Promise<Response>=>serverFetchHelper(endpoint, {...options, method: "GET"}),
+    get: async(endpoint: string, options?:RequestInit): Promise<Response>=>serverFetchHelper(endpoint, {...options, method: "GET"}),
     post: async(endpoint: string, options:RequestInit): Promise<Response>=>serverFetchHelper(endpoint, {...options, method: "POST"}),
     patch: async(endpoint: string, options:RequestInit): Promise<Response>=>serverFetchHelper(endpoint, {...options, method: "PATCH"}),
     put: async(endpoint: string, options:RequestInit): Promise<Response>=>serverFetchHelper(endpoint, {...options, method: "PUT"}),

@@ -17,7 +17,7 @@ const loginFormZodSchema = z.object({
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const loginUser = async (_currentState: any, formData: any) => {
+export const loginUser = async (_currentState: any, formData: any): Promise<any> => {
   try {
     const redirectTo = formData.get("redirect");
     const loginPayload = {

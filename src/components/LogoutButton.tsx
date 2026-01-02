@@ -2,6 +2,7 @@
 
 import { logout } from "@/services/auth/logout";
 import { Button } from "./ui/button";
+import { LogOut } from "lucide-react";
 
 export default function LogoutButton() {
   const handelLogout = async () => {
@@ -11,9 +12,9 @@ export default function LogoutButton() {
     <Button
       onClick={handelLogout}
       className="w-full cursor-pointer bg-[#DC143C] text-white"
-      variant="outline"
+      
     >
-      Logout
+      <LogOut className="text-white"/>Logout
     </Button>
   );
 }

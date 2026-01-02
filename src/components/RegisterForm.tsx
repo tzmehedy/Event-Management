@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useActionState } from "react";
@@ -15,6 +14,7 @@ export default function RegisterForm() {
 
   const getErrorFieldMessage = (fieldName: string) => {
     if (state && state?.errors) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const error = state.errors.find((err: any) => err.field === fieldName);
       return error?.message;
     }
