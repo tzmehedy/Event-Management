@@ -39,7 +39,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function UpdateEventForm({ event }: { event: IEvent }) {
@@ -48,23 +48,25 @@ export default function UpdateEventForm({ event }: { event: IEvent }) {
 
   const [state, formAction, isPending] = useActionState(updateEvent, null);
 
-  const manageImage  = (formData:FormData) =>{
-    if(image){
-      formData.append("image",image)
+  const manageImage = (formData: FormData) => {
+    if (image) {
+      formData.append("image", image);
     }
-    formAction(formData)
-  }
+    formAction(formData);
+  };
 
-  if(state && state?.success === true) {
-    toast.success("Your event successfully updated")
-    redirect("/host/dashboard/published-events")
-  }
-  if(state && state?.success === false){
-    toast.error(state?.message)
-  }
+  useEffect(() => {
+    if (state && state?.success === true) {
+      toast.success("Your event successfully updated");
+      redirect("/host/dashboard/published-events");
+    }
+    if (state && state?.success === false) {
+      toast.error(state?.message);
+    }
+  }, [state])
 
   return (
-    <form action={(formData)=> manageImage(formData)}>
+    <form action={(formData) => manageImage(formData)}>
       <input value={event?._id} type="hidden" name="_id" />
       <input type="hidden" name="event_date" value={date.toISOString()} />
       <FieldSet>
@@ -325,8 +327,13 @@ export default function UpdateEventForm({ event }: { event: IEvent }) {
                 </FieldLabel>
                 <div className="flex flex-col md:flex-row justify-between gap-10 ">
                   <div className="relative  flex-1 border border-[#DC143C] rounded-lg">
-                    <Image className=" p-5" src={event?.image} alt={event?.title} fill style={{objectFit: "contain"}}/>
-
+                    <Image
+                      className=" p-5"
+                      src={event?.image}
+                      alt={event?.title}
+                      fill
+                      style={{ objectFit: "contain" }}
+                    />
                   </div>
                   <div className="md:w-2/3">
                     <SingleImageUploader setImage={setImage} />
