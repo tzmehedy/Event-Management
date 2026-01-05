@@ -26,7 +26,7 @@ const navigationLinks = [
 export default async function Navbar() {
   const accessToken = await getCookie("accessToken")
   const userInfo = await getUserInfo()
-  const dashboardHome =await getDefaultDashboardRoutes(userInfo?.role)
+  const dashboardHome = userInfo && 'role' in userInfo ? await getDefaultDashboardRoutes(userInfo.role) : "/login"
 
   return (
     <header className="border-b px-4 md:px-6 container mx-auto">
@@ -136,7 +136,7 @@ export default async function Navbar() {
               >
                 Become a host
               </Button>
-              <ProfileButton name={userInfo?.name ? userInfo?.name : "Unknown User"} role={userInfo?.role} dashboardHome={dashboardHome}/>
+              <ProfileButton name={userInfo && 'name' in userInfo ? userInfo?.name : "Unknown User"} role={userInfo && 'role' in userInfo? userInfo?.role: null} dashboardHome={dashboardHome}/>
             </div>
           ) : (
             <Button
