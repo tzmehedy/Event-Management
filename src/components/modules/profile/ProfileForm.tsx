@@ -1,13 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import {
-  Field,
- 
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { IUser } from "@/types/auth.interface";
 import ProfileImageUploader from "./ProfileImageUploader";
@@ -35,14 +28,15 @@ export default function ProfileForm({ userInfo }: { userInfo: IUser }) {
 
     formAction(formData);
   };
-  console.log(state)
 
-  if (state?.success === true) {
-    toast.success(state.message);
-  }
-  if (state?.success === false) {
-    toast.error(state.message);
-  }
+  useEffect(() => {
+    if (state?.success === true) {
+      toast.success(state.message);
+    }
+    if (state?.success === false) {
+      toast.error(state.message);
+    }
+  }, [state])
 
   return (
     <>

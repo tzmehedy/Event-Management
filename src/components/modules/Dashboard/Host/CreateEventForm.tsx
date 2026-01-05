@@ -38,12 +38,12 @@ import {
   Users,
 } from "lucide-react";
 import { redirect } from "next/navigation";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function CreateEventForm() {
   const [date, setDate] = useState<Date>();
-  const [image, setImage] = useState< File | null>(null);
+  const [image, setImage] = useState<File | null>(null);
 
   const [state, formAction, isPending] = useActionState(createEvent, null);
 
@@ -58,10 +58,15 @@ export default function CreateEventForm() {
     formAction(formData);
   };
 
-  if (state?.success) {
-    toast.success("Your event has been published");
-    redirect("/host/dashboard/published-events");
-  }
+  useEffect(() => {
+    if (state?.success===true) {
+      toast.success("Your event has been published");
+      redirect("/host/dashboard/published-events");
+    }
+    if(state?.success===false){
+      toast.error(state?.message)
+    }
+  }, [state]);
 
   return (
     <form action={(formData) => onSubmit(formData)}>
@@ -319,11 +324,12 @@ export default function CreateEventForm() {
           variant={"outline"}
           type="submit"
         >
-          
           {isPending ? (
             <Loader className="text-white animate-spin" />
           ) : (
-           <p className="flex items-center gap-2"><Plus /> Create Event</p>
+            <p className="flex items-center gap-2">
+              <Plus /> Create Event
+            </p>
           )}
         </Button>
       </div>
