@@ -326,9 +326,9 @@ export default function UpdateEventForm({ event }: { event: IEvent }) {
                   Event Banner
                 </FieldLabel>
                 <div className="flex flex-col md:flex-row justify-between gap-10 ">
-                  <div className="relative  flex-1 border border-[#DC143C] rounded-lg">
+                  <div className="relative min-h-40 flex-1 border border-[#DC143C] rounded-lg">
                     <Image
-                      className=" p-5"
+                      className="py-3"
                       src={event?.image}
                       alt={event?.title}
                       fill
