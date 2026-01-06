@@ -85,6 +85,6 @@ export const loginUser = async (_currentState: any, formData: any): Promise<any>
     if (error?.digest?.startsWith("NEXT_REDIRECT")) {
       throw error;
     }
-    return { error: "Login Failed" };
+    return {success:false, message: "Invalid Email And Password" };
   }
 };

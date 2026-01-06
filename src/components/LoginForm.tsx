@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { Button } from "./ui/button";
 import {
   Field,
@@ -12,6 +12,7 @@ import {
 import { Input } from "./ui/input";
 import { loginUser } from "@/services/auth/login";
 import { Loader } from "lucide-react";
+import { toast } from "sonner";
 
 export default function LoginForm({ redirect }: { redirect?: string }) {
   const [state, formAction, isPending] = useActionState(loginUser, null);
@@ -21,7 +22,13 @@ export default function LoginForm({ redirect }: { redirect?: string }) {
       const error = state.errors.find((err: any) => err.field === fieldName);
       return error?.message;
     }
-  };
+  }
+
+  useEffect(()=>{
+    if(state && state?.success === false){
+      toast.error(state?.message)
+  }
+  }, [state])
 
   return (
     <form action={formAction} className="space-y-5">
