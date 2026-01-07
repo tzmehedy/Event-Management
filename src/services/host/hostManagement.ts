@@ -49,7 +49,7 @@ export const getPublishedEvents = async (params: IParams): Promise<any> => {
     const res = await serverFetch
       .get(`/host/published-event?searchTerm=${params.searchTerm}&&status=${params.status}&&sortBy=${params.sortBy}&&page=${params.page}`, {
         next: {
-          tags: ["Events"],
+          tags: ["HostEvents"],
         },
       })
       .then((res) => res.json());
@@ -104,7 +104,7 @@ export const deleteEvent = async(eventId:string) =>{
     const res = await serverFetch.delete(`/event/delete/${eventId}`).then((res)=>res.json())
 
     if(res.success === true){
-      revalidateTag("Events", {expire: 0})
+      revalidateTag("HostEvents", {expire: 0})
     }
 
     return res

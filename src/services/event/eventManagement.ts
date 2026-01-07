@@ -18,3 +18,21 @@ export const getEventInfo = async(id: string):Promise<any> =>{
     }
 
 }
+
+export const getAllEventInfo = async():Promise<any> =>{
+    try {
+        const res = await serverFetch.get("/event",{
+            next: {
+                tags: ["Events"]
+            }
+        }).then((res)=>res.json())
+        return res
+        
+    } catch (error:any) {
+        return {
+            success:false,
+            message: error?.message
+        }
+        
+    }
+}

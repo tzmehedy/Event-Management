@@ -7,7 +7,6 @@ import { Testimonial } from "@/components/modules/Home/Testimonial";
 import TopHosts from "@/components/modules/Home/TopHosts";
 
 export default  function HomePage() {
-  
   return (
     <div className=" my-10 space-y-20 ">
       <div className="container mx-auto space-y-20 p-2 md:p-0">
