@@ -19,4 +19,5 @@ export interface IParams {
   searchTerm?: string;
   status?: string;
   sortBy?: string;
+  page?: string
 }

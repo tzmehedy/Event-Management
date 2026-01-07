@@ -47,7 +47,7 @@ export const createEvent = async (
 export const getPublishedEvents = async (params: IParams): Promise<any> => {
   try {
     const res = await serverFetch
-      .get(`/host/published-event?searchTerm=${params.searchTerm}&&status=${params.status}&&sortBy=${params.sortBy}`, {
+      .get(`/host/published-event?searchTerm=${params.searchTerm}&&status=${params.status}&&sortBy=${params.sortBy}&&page=${params.page}`, {
         next: {
           tags: ["Events"],
         },

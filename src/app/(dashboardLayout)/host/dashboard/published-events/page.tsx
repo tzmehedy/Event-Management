@@ -19,9 +19,9 @@ export default async function PublishedEventsPage({searchParams}: searchParamsPr
   const {data} = await getPublishedEvents(params)
 
   
-  const allPublishedEvents = data || []
+  const allPublishedEvents = data?.events || []
   const itemsPerPage = 3
-  const totalPage = Math.ceil((allPublishedEvents.length)/itemsPerPage)
+  const totalPage = Math.ceil((data?.totalEvents)/itemsPerPage)
 
   
 
