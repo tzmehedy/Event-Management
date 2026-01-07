@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default async function FeatureEvents() {
   const {data} = await getAllEventInfo(null)
+  const allEvents = data?.events
  
   return (
     <div>
@@ -23,7 +24,7 @@ export default async function FeatureEvents() {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 p-2 lg:p-0'>
         
         {
-          data && data.slice(0,3).map((event: IAllEvent)=> <EventCard key={event._id} event={event}/>)
+          allEvents && allEvents?.slice(0,3).map((event: IAllEvent)=> <EventCard key={event._id} event={event}/>)
         }
       </div>
 
