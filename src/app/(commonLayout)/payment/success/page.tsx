@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Check, PartyPopper } from "lucide-react";
 import Link from "next/link";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function SuccessPage({params}: {params:any}) {
-  const {transitionId} = await params 
+export default async function SuccessPage() {
+  
+ 
 
   return (
     <div className='min-h-screen flex justify-center items-center p-2 md:p-0 '>
@@ -15,7 +15,6 @@ export default async function SuccessPage({params}: {params:any}) {
             <div className="flex flex-col items-center space-y-3">
                 <h1 className="text-2xl text-green-700 font-bold flex gap-2">Payment Successfully <PartyPopper/></h1>
                 <p className="text-center text-muted-foreground">Your payment has been successfully processed. <br /> Now you can go to the Homepage and Explore new events.</p>
-                <p>Transition Id: {transitionId} </p>
                 <Link href={"/"}>
                 <Button variant={"outline"}  className="w-full bg-green-400 cursor-pointer">Back To Home</Button>
                 </Link>

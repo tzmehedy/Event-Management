@@ -30,7 +30,7 @@ const getUserSideBarItems: NavSection[] = [
         items: [
             {
                 title: "My-Events",
-                url: "/My-Events/:id",
+                url: "/dashboard/my-events",
                 icon: "CalendarDays"
             }
         ]

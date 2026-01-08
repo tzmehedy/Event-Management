@@ -12,8 +12,6 @@ interface IPaginationProps {
 export default function Pagination({ totalPage }: IPaginationProps) {
   const paginatedArray = [...Array(totalPage).keys()];
 
-  console.log(paginatedArray);
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activePage, setActivePage] = useState(1);
