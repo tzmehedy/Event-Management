@@ -8,8 +8,8 @@ export type RouteConfig = {
 export const authRoutes = ["/login", "/register"];
 
 export const commonProtectedRoutes: RouteConfig = {
-  exact: ["/my-profile"],
-  patterns: [/^\/events/, /^\/payment/],
+  exact: ["/my-profile", "/payment/success", "/payment/cancel", "/payment/failed"],
+  patterns: [/^\/events/],
 };
 
 export const userProtectedRoutes: RouteConfig = {
