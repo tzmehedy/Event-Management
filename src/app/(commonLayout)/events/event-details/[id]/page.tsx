@@ -20,6 +20,9 @@ export default async function EventDetailsPage({
   const { data } = await getEventInfo(id);
   const eventInfo = data as IAllEvent;
   const date = new Date(eventInfo?.date).toDateString();
+  
+  const category = eventInfo?.category?.toUpperCase()
+  const hostName = eventInfo?.host?.user?.name?.toUpperCase()
 
   return (
     <div className="container mx-auto my-10">
@@ -38,7 +41,7 @@ export default async function EventDetailsPage({
           <div className="space-y-5 z-20 md:w-2/3">
             <div className="px-10 py-8 flex flex-col justify-center border-2 rounded-lg shadow-2xl mx-10  bg-white -mt-20  space-y-5">
               <p className="text-sm text-muted-foreground bg-pink-200 w-28 text-center rounded-lg py-1 px-2">
-                {eventInfo.category.toUpperCase()}
+                {category}
               </p>
               <h1 className="text-3xl font-bold">{eventInfo.title}</h1>
               <div className="flex flex-col md:flex-row md:items-center justify-center md:justify-between gap-5">
@@ -113,7 +116,7 @@ export default async function EventDetailsPage({
 
                 <div>
                   <h1 className="font-bold">
-                    {(eventInfo?.host?.user?.name).toUpperCase()}
+                    {hostName}
                   </h1>
                   <p className="text-muted-foreground text-sm">Organizer</p>
                 </div>

@@ -11,14 +11,15 @@ interface ISearchParamsProps{
     location?: string,
     page?:string
   }
-}
+} 
 
 export default async function ExploreEventPage({searchParams}:ISearchParamsProps ) {
   const params = await searchParams
   const {data} = await getAllEventInfo(params)
   const allEvents = data?.events || []
+  const totalEvents = data?.totalEvents ?? 0
   const itemPerPage = 3 
-  const totalPage = Math.ceil((data?.totalEvents)/itemPerPage)
+  const totalPage = Math.ceil((totalEvents)/itemPerPage)
   
   return (
     <div className='container mx-auto my-10 space-y-10'>
