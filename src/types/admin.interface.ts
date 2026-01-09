@@ -30,3 +30,20 @@ export interface User {
   phone: string
   picture: string
 }
+
+export interface IBecomeHost {
+  _id: string
+  user: User
+  approval_Status: string
+  events: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface User {
+  _id: string
+  name: string
+  email: string
+  isBlocked: boolean
+}
+

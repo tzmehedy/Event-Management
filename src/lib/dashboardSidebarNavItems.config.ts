@@ -50,6 +50,11 @@ const getAdminSideBarItems: NavSection[] = [
                 url: "/admin/dashboard/all-events",
                 icon: "CalendarDays"
             },
+            {
+                title: "To Be Host Request",
+                url:"/admin/dashboard/become-host-request",
+                icon:"CircleQuestionMark"
+            }
         ]
     }
 ]

@@ -135,4 +135,64 @@ export const participantsInfo = async(eventId: string) =>{
 }
 
 
+export const becomeAHost = async() =>{
+  try {
+    const res = await serverFetch.post("/host/become-host").then((res)=>res.json())
+    return res
+    
+  } catch (error:any) {
+    return {
+      success: false,
+      message: error?.message
+    }
+    
+  }
+}
+
+
+export const becomeAHostInfo = async() =>{
+  try {
+    const res = await serverFetch.get("/host/requested-host", {
+      next:{
+        tags: ["BecomeHost"]
+      }
+    }).then((res)=>res.json())
+    return res
+    
+  } catch (error: any) {
+    return {
+      success:false,
+      message: error?.message
+    }
+    
+  }
+}
+
+
+export const handelHostApprovalStatus= async({hostId, approval_Status}: {hostId: string, approval_Status: string}) =>{
+  try {
+    const payload = {
+      approval_Status: approval_Status
+    }
+    const res = await serverFetch.patch(`/host/update-approval/${hostId}`, {
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then((res)=>res.json())
+
+    if(res?.success=== true){
+      revalidateTag("BecomeHost", {expire:0})
+    }
+
+    
+  } catch (error:any) {
+    return {
+      success: false,
+      message: error?.message
+    }
+    
+  }
+} 
+
 

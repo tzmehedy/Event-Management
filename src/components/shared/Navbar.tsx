@@ -16,6 +16,7 @@ import { getCookie } from "@/lib/tokenHandler";
 import { getUserInfo } from "@/services/auth/getUserInfo";
 import ProfileButton from "../ProfileButton";
 import { getDefaultDashboardRoutes } from "@/lib/auth-utils";
+import BecomeAHostButton from "./BecomeAHostButton";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -24,13 +25,16 @@ const navigationLinks = [
 ];
 
 export default async function Navbar() {
-  const accessToken = await getCookie("accessToken");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const accessToken:any = await getCookie("accessToken");
   const userInfo = await getUserInfo();
   const dashboardHome =
     userInfo && "role" in userInfo
       ? await getDefaultDashboardRoutes(userInfo.role)
       : "/login";
   const userRole = userInfo && "role" in userInfo ? userInfo?.role : "";
+
+  
 
   return (
     <header className="border-b px-4 md:px-6 container mx-auto">
@@ -133,13 +137,7 @@ export default async function Navbar() {
         <div>
           {accessToken ? (
             <div className="flex items-center gap-2">
-              <Button
-                hidden={userRole !== "USER"}
-                className="text-sm cursor-pointer"
-                disabled={!accessToken}
-              >
-                Become a host
-              </Button>
+              <BecomeAHostButton role={userRole}/>
               <ProfileButton
                 name={
                   userInfo && "name" in userInfo
