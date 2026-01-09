@@ -12,3 +12,18 @@ export const userStatsInfo =async() =>{
     }
 
 }
+
+export const getHostStats = async() =>{
+    try {
+        const res = await serverFetch.get("/stats/host-stats").then((res)=>res.json())
+        return res
+    } catch (error: any) {
+        return{
+            success:false,
+            message: error?.message
+        }
+    }
+
+
+  
+}

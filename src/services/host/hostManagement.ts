@@ -118,3 +118,6 @@ export const deleteEvent = async(eventId:string) =>{
   }
 
 }
+
+
+
