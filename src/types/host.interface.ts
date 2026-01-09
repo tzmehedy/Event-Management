@@ -21,3 +21,27 @@ export interface IParams {
   sortBy?: string;
   page?: string
 }
+
+export interface IParticipants {
+  _id: string
+  user: User
+  event: string
+  status: string
+  guestCount: number
+  __v: number
+  payment: Payment
+}
+
+export interface User {
+  _id: string
+  name: string
+  email: string
+  phone: string
+}
+
+export interface Payment {
+  _id: string
+  transactionId: string
+  payment_status: string
+  amount: number
+}

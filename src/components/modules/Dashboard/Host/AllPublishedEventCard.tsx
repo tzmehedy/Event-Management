@@ -10,7 +10,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { IEvent } from "@/types/host.interface";
-import { Calendar, Clock, MapPin, Pencil, Trash } from "lucide-react";
+import { Calendar, Clock, MapPin, Pencil, Trash, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -65,6 +65,11 @@ export default function AllPublishedEventCard({ event }: { event: IEvent }) {
             View Details
           </Button>
           <div className="flex gap-2">
+            <Link href={`/host/dashboard/show-participants/${event?._id}`}>
+              <Button className="font-bold  cursor-pointer" variant={"outline"}>
+                <Users/>
+              </Button>
+            </Link>
             <Link href={`/host/dashboard/update-event/${event?._id}`}>
               <Button className="font-bold  cursor-pointer" variant={"outline"}>
                 <Pencil />

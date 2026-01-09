@@ -120,4 +120,19 @@ export const deleteEvent = async(eventId:string) =>{
 }
 
 
+export const participantsInfo = async(eventId: string) =>{
+  try {
+    const res = await serverFetch.get(`/booking/participants/${eventId}`).then((res)=>res.json())
+    return res
+    
+  } catch (error: any) {
+    return {
+      success:false,
+      message: error?.message
+    }
+    
+  }
+}
+
+
 
