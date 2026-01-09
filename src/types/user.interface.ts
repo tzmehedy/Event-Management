@@ -57,3 +57,21 @@ export interface HostUser{
     phone: string,
     picture: string
 }
+
+export interface IUser {
+  _id: string
+  name: string
+  email: string
+  auths: IAuthProviders[]
+  interests: string[]
+  location: string
+  isBlocked: boolean
+  role: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface IAuthProviders{
+    providerId: string,
+    providerName: string
+}

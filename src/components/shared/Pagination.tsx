@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
 interface IPaginationProps {
-  totalPage: number ;
+  totalPage: number;
 }
 
 export default function Pagination({ totalPage }: IPaginationProps) {
