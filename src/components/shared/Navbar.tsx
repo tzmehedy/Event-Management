@@ -23,6 +23,9 @@ import { ThemeModeToggler } from "./ThemeModeToggler";
 const navigationLinks = [
   { active: true, href: "/", label: "Home" },
   { href: "/explore-events", label: "Explore Events" },
+  { href: "/about", label: "About" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact-us", label: "Contact Us" },
 ];
 
 export default async function Navbar() {
