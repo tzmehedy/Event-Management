@@ -50,9 +50,9 @@ export default function Pagination({ totalPage }: IPaginationProps) {
         paginatedArray?.map((page, i) => (
           <Button
             onClick={() => setActivePage(i + 1)}
-            variant={"outline"}
-            className={cn("cursor-pointer", {
-              "bg-[#DC143C] text-white": page + 1 === activePage,
+            // variant={"outline"}
+            className={cn("cursor-pointer bg-background text-foreground border hover:bg-background", {
+              "bg-[#DC143C] text-background hover:bg-foreground": page + 1 === activePage,
             })}
             key={i}
           >

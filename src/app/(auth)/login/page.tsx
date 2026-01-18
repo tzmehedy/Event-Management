@@ -11,7 +11,7 @@ export default async function LoginPage({
 
   return (
     <div className="flex justify-center items-center  min-h-dvh p-2 md:p-0 ">
-      <div className="border-2 border-[#DC143C] p-10 shadow-2xl rounded-lg bg-white space-y-3">
+      <div className="border-2 border-[#DC143C] p-10 shadow-2xl rounded-lg bg-background space-y-3">
         <div className="flex flex-col items-center space-y-3">
           <Link href="/">
             <Logo />

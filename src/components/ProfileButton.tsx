@@ -23,7 +23,7 @@ export default  function ProfileButton({name,dashboardHome, role} : {name: strin
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel className="text-lg text-[#DC143C]">Welcome {name}</DropdownMenuLabel>
-        <DropdownMenuLabel className="text-sm text-[#111827] font-bold"><small>{role}</small></DropdownMenuLabel>
+        <DropdownMenuLabel className="text-sm text-foreground font-bold"><small>{role}</small></DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem
         >

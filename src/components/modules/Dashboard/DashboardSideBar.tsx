@@ -37,7 +37,7 @@ export async function DashboardSidebar({
                 <div className="flex items-center gap-2">
                   <Logo />{" "}
                   <h1 className="text-[#DC143C] font-bold text-md">
-                    <span className="text-[#111827]">Event</span> Management
+                    <span className="text-foreground">Event</span> Management
                   </h1>
                 </div>
               </Link>

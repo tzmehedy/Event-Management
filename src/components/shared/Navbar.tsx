@@ -17,6 +17,7 @@ import { getUserInfo } from "@/services/auth/getUserInfo";
 import ProfileButton from "../ProfileButton";
 import { getDefaultDashboardRoutes } from "@/lib/auth-utils";
 import BecomeAHostButton from "./BecomeAHostButton";
+import { ThemeModeToggler } from "./ThemeModeToggler";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -104,7 +105,7 @@ export default async function Navbar() {
             >
               <Logo />
               <h1 className="text-3xl font-bold text-[#DC143C] hidden lg:inline-block">
-                <span className="text-[#111827]">Event</span> Management
+                <span className="text-foreground">Event</span> Management
               </h1>
             </Link>
           </div>
@@ -134,7 +135,10 @@ export default async function Navbar() {
         </div>
 
         {/* Right side */}
+        <div className="flex gap-2">
         <div>
+          <ThemeModeToggler />
+        </div>
           {accessToken ? (
             <div className="flex items-center gap-2">
               <BecomeAHostButton role={userRole}/>
