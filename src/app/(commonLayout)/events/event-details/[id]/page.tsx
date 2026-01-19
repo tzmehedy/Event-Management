@@ -40,7 +40,7 @@ export default async function EventDetailsPage({
 
         <div className="flex flex-col md:flex-row justify-center   gap-5 ">
           <div className="space-y-5 z-20 md:w-2/3">
-            <div className="px-10 py-8 flex flex-col justify-center border-2 rounded-lg shadow-2xl mx-10  bg-white -mt-20  space-y-5">
+            <div className="px-10 py-8 flex flex-col justify-center border-2 rounded-lg shadow-2xl mx-10  bg-background -mt-20  space-y-5">
               <p className="text-sm text-muted-foreground bg-pink-200 w-28 text-center rounded-lg py-1 px-2">
                 {category}
               </p>
@@ -95,7 +95,7 @@ export default async function EventDetailsPage({
               </div>
             </div>
 
-            <div className="px-10 py-5 flex flex-col justify-center border-2 rounded-lg shadow-xl mx-10  bg-white  space-y-5 ">
+            <div className="px-10 py-5 flex flex-col justify-center border-2 rounded-lg shadow-xl mx-10  bg-background  space-y-5 ">
               <div>
                 <h1 className="text-xl font-bold">Hosted By</h1>
               </div>

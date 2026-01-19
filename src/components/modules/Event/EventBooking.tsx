@@ -28,7 +28,7 @@ export default function EventBooking({eventInfo}: {eventInfo:IAllEvent}) {
         }
     }
   return (
-    <div className="bg-white shadow-xl px-5 py-10 rounded-lg border space-y-5">
+    <div className="bg-background shadow-xl px-5 py-10 rounded-lg border space-y-5">
         <div className="flex items-center gap-3">
             <Ticket className="text-[#DC143C]"/>
             <h1 className="font-bold text-xl">Select No Of Perticipents</h1>
